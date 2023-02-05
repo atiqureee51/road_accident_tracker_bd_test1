@@ -39,21 +39,6 @@ import os
 #####################################################################################################################
 ### LOADING FILES
 
-@st.cache
-
-# LOAD DATAFRAME FUNCTION
-def load_data(path):
-    df = pd.read_csv(path)
-    return df
-
-# LOAD GEIJASON FILE
-with open("data/bangladesh_geojson_adm2_64_districts_zillas.json") as response:
-    bd_districts = json.load(response)
-
-# LOAD csv DATA
-df_raw = load_data(path="data/Districts_of_Bangladesh.csv")
-df = deepcopy(df_raw)
-
 
 
 #df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/tree/main/data/Districts_of_Bangladesh.csv")
@@ -85,6 +70,26 @@ st.sidebar.write('Contact at something@gmail.net')
                   
 #st.header("tracker 1 ")
 
+                   
+@st.cache
+
+# LOAD DATAFRAME FUNCTION
+def load_data(path):
+    df = pd.read_csv(path)
+    return df
+
+# LOAD GEIJASON FILE
+with open("data/bangladesh_geojson_adm2_64_districts_zillas.json") as response:
+    bd_districts = json.load(response)
+
+# LOAD csv DATA
+df_raw = load_data(path="data/Districts_of_Bangladesh.csv")
+df = deepcopy(df_raw)
+
+
+                   
+                   
+                   
 st.write('Districts_of_Bangladesh',df)
 
 df.District = df.District.apply(lambda x: x.replace(" District",""))
