@@ -75,7 +75,7 @@ if uploaded_file2 is not None:
 #bd_districts=json.load(open(DATA_URL,"r"))
 # show data on streamlit
 #st.write('64_districts_zillas',bd_districts)
-""""
+"""
 
 
 # Add title and header
