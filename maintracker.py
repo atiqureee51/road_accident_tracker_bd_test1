@@ -108,7 +108,7 @@ fig.show()
 """
 # Geographic Map
 fig = go.Figure(
-    go.Choroplethmapbox(
+    px.choropleth(
         df,
         locations='id',
         geojson=bd_districts,
