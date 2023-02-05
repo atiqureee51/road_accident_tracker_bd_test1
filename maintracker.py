@@ -44,7 +44,7 @@ import os
 #df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/tree/main/data/Districts_of_Bangladesh.csv")
 
 # Specify the title and logo for the web page.
-st.set_page_config(page_title='Road accident tracker in Bangladesh', 
+st.set_page_config(page_title='Road accident tracker in Bangladesh') 
 
 # Add social media tags and links to the web page.
 """
