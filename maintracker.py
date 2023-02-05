@@ -31,8 +31,6 @@ st.title('Road accident tracker bd')
 
 
 @st.cache()
-
-import pandas as pd
 df=pd.read_csv("data/Districts_of_Bangladesh.csv")
 
 st.write('Districts_of_Bangladesh',df)
