@@ -3,3 +3,4 @@ git+https://github.com/numpy/numpy-financial
 
 git+https://github.com/PablocFonseca/streamlit-aggrid
 matplotlib==3.4.1
+plotly==5.1.0
