@@ -154,3 +154,20 @@ fig3.update_geos(fitbounds="locations", visible=False)
 fig3.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 st.plotly_chart(fig3)
 
+# Setting up columns
+c1,c2,c3 = st.columns([1,1, 1])
+
+# Widgets: checkbox (you can replace st.xx with st.sidebar.xx)
+if c2.checkbox("Show Dataframe"):
+    st.subheader("This is my dataset:")
+    st.dataframe(data=df)
+    #st.table(data=df)
+
+
+c1.download_button("Download CSV File", data="data/Districts_of_Bangladesh.csv", file_name="Districts_of_Bangladesh", mime='text/csv')
+
+link = '[To see the code in GitHub ](https://github.com/atiqureee51/road_accident_tracker_bd_test1)'
+c3.markdown(link, unsafe_allow_html=True)
+
+#print(df_gb2.loc["Valais"])
+
