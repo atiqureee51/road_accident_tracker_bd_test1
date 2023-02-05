@@ -159,7 +159,7 @@ c1,c2,c3 = st.columns([1,1, 1])
 
 # Widgets: checkbox (you can replace st.xx with st.sidebar.xx)
 if c2.checkbox("Show Dataframe"):
-    st.subheader("This is my dataset:")
+    st.subheader("The dataset:")
     st.dataframe(data=df)
     #st.table(data=df)
 
