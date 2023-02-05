@@ -38,7 +38,6 @@ if uploaded_file is not None:
 #st.write('Districts_of_Bangladesh',df)
 
 
-@st.cache()
 #DATA_URL = "data/bangladesh_geojson_adm2_64_districts_zillas.json"
 import json
 #from json import load
