@@ -31,9 +31,9 @@ st.title('Road accident tracker bd')
 
 #df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/tree/main/data/Districts_of_Bangladesh.csv")
 
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-  df = pd.read_csv(uploaded_file)
+uploaded_file1 = st.file_uploader("Choose a file Districts_of_Bangladesh.csv")
+if uploaded_file1 is not None:
+  df = pd.read_csv(uploaded_file1)
   st.write('Districts_of_Bangladesh',df)
 #st.write('Districts_of_Bangladesh',df)
 
@@ -41,9 +41,9 @@ if uploaded_file is not None:
 #DATA_URL = "data/bangladesh_geojson_adm2_64_districts_zillas.json"
 import json
 #from json import load
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-  bd_districts=json.load(uploaded_file)
+uploaded_file2 = st.file_uploader("Choose a file bangladesh_geojson_adm2_64_districts_zillas.json")
+if uploaded_file2 is not None:
+  bd_districts=json.load(uploaded_file2)
   st.write(bd_districts)
 #bd_districts=json.load(open(DATA_URL,"r"))
 # show data on streamlit
