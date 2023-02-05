@@ -44,7 +44,7 @@ import json
 uploaded_file2 = st.file_uploader("Choose a file bangladesh_geojson_adm2_64_districts_zillas.json")
 if uploaded_file2 is not None:
   bd_districts=json.load(uploaded_file2)
-  st.write(bd_districts)
+  #st.write(bd_districts)
 #bd_districts=json.load(open(DATA_URL,"r"))
 # show data on streamlit
 #st.write('64_districts_zillas',bd_districts)
@@ -77,6 +77,8 @@ df.set_index('District')["Population (thousands)"].plot.bar(
     fontsize=10,
     color=color
     )
+
+
 from plotly.offline import plot, iplot, init_notebook_mode
 init_notebook_mode(connected=True)
 import plotly.express as px
