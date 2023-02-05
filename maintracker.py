@@ -24,12 +24,12 @@ from distutils.log import error
 import altair as alt
 from itertools import cycle
 
-
+#https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/bangladesh_geojson_adm2_64_districts_zillas.json
 from json import load
-bd_districts=load(open('https://github.com/atiqureee51/road_accident_tracker_bd_test1/raw/main/bangladesh_geojson_adm2_64_districts_zillas.json','r'))
+bd_districts=load(open('https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/bangladesh_geojson_adm2_64_districts_zillas.json','r'))
 
 import pandas as pd
-df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/raw/main/Districts_of_Bangladesh.csv")
+df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/Districts_of_Bangladesh.csv")
 st.write('Districts_of_Bangladesh',st.write('inverter',inverter))
 
 df.District = df.District.apply(lambda x: x.replace(" District",""))
