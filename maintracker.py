@@ -57,25 +57,7 @@ df = deepcopy(df_raw)
 
 
 #df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/tree/main/data/Districts_of_Bangladesh.csv")
-"""
-uploaded_file1 = st.file_uploader("Choose a file Districts_of_Bangladesh.csv")
-if uploaded_file1 is not None:
-  df = pd.read_csv(uploaded_file1)
-  st.write('Districts_of_Bangladesh',df)
-#st.write('Districts_of_Bangladesh',df)
 
-
-#DATA_URL = "data/bangladesh_geojson_adm2_64_districts_zillas.json"
-import json
-#from json import load
-uploaded_file2 = st.file_uploader("Choose a file bangladesh_geojson_adm2_64_districts_zillas.json")
-if uploaded_file2 is not None:
-  bd_districts=json.load(uploaded_file2)
-  #st.write(bd_districts)
-#bd_districts=json.load(open(DATA_URL,"r"))
-# show data on streamlit
-#st.write('64_districts_zillas',bd_districts)
-"""
 
 
 # Add title and header
@@ -112,11 +94,7 @@ df.set_index('District')["Population (thousands)"].plot.bar(
     )
 
 
-from plotly.offline import plot, init_notebook_mode
-init_notebook_mode(connected=True)
-import plotly.express as px
-import plotly.io as pio
-pio.renderers.default = 'browser'
+#pio.renderers.default = 'browser'
 """
 fig = px.choropleth(
     df,
