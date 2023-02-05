@@ -28,19 +28,24 @@ from itertools import cycle
 
 st.title('Road accident tracker bd')
 
-
+@st.cache()
 DATA_URL = 'https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/bangladesh_geojson_adm2_64_districts_zillas.json'
-DATA_URL_2= "https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/Districts_of_Bangladesh.csv"
-
-@st.cache(allow_output_mutation=True)
 
 
-from json import load
 
-bd_districts=load(open(DATA_URL,'r'))
+
+import json
+#from json import load
+
+bd_districts=json.load(open(DATA_URL,'r'))
 # show data on streamlit
 st.write('64_districts_zillas',bd_districts)
-    
+
+
+@st.cache()
+DATA_URL_2= 'https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/Districts_of_Bangladesh.csv'
+s
+
 import pandas as pd
 df=pd.read_csv(DATA_URL_2)
 
