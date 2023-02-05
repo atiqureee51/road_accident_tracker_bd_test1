@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri May  6 12:07:05 2022
+
 @author: Atiqur rahaman
 """
 
@@ -25,12 +25,24 @@ import altair as alt
 from itertools import cycle
 
 #https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/bangladesh_geojson_adm2_64_districts_zillas.json
-from json import load
-bd_districts=load(open('https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/bangladesh_geojson_adm2_64_districts_zillas.json','r'))
 
+st.title('Road accident tracker bd')
+
+
+DATA_URL = ('https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/bangladesh_geojson_adm2_64_districts_zillas.json')
+DATA_URL_2= "https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/Districts_of_Bangladesh.csv"
+@st.cache(allow_output_mutation=True)
+
+
+from json import load
+bd_districts=load(open(DATA_URL,'r'))
+# show data on streamlit
+st.write('64_districts_zillas',bd_districts)
+    
 import pandas as pd
-df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/Districts_of_Bangladesh.csv")
-st.write('Districts_of_Bangladesh',st.write('inverter',inverter))
+df=pd.read_csv(DATA_URL_2)
+
+st.write('Districts_of_Bangladesh',df)
 
 df.District = df.District.apply(lambda x: x.replace(" District",""))
 
