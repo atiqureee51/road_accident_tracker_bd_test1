@@ -31,7 +31,7 @@ st.title('Road accident tracker bd')
 
 
 @st.cache()
-df=pd.read_csv("data/Districts_of_Bangladesh.csv")
+df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/tree/main/data/Districts_of_Bangladesh.csv")
 
 st.write('Districts_of_Bangladesh',df)
 
