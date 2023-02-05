@@ -53,7 +53,6 @@ st.set_page_config(page_title='Road accident tracker in Bangladesh',
 [![Follow](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/DennisNiggl)
 
 # Road accident tracker bd Road Accident MAP Bangladesh
-
 """
 # Add a sidebar to the web page. 
 st.markdown('---')
@@ -71,7 +70,7 @@ st.sidebar.write('Contact at something@gmail.net')
 #st.header("tracker 1 ")
 
                    
-@st.cache
+#@st.cache
 
 # LOAD DATAFRAME FUNCTION
 def load_data(path):
