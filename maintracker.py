@@ -132,7 +132,7 @@ fig = go.Figure(
     )
 )
 fig.update_geos(fitbounds="locations", visible=False)
-fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+#fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 st.plotly_chart(fig)
 
 
@@ -158,7 +158,7 @@ fig2 = go.Figure(
     )
 )
 fig2.update_geos(fitbounds="locations", visible=False)
-fig2.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+#fig2.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 st.plotly_chart(fig2)
 
 # Geographic Map 3
@@ -176,7 +176,7 @@ fig3 = go.Figure(
             opacity=0.6)
 )
 fig3.update_geos(fitbounds="locations", visible=False)
-fig3.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+#fig3.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 st.plotly_chart(fig3)
 
 # Setting up columns
