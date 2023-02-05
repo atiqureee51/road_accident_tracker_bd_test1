@@ -3,22 +3,9 @@
 
 @author: Atiqur rahaman
 """
-
-
-import pandas as pd
-import matplotlib.pyplot as plt
 import math
-
 import time
 import numpy as np
-
-
-
-
-import streamlit as st
-import pandas as pd
-import numpy as np
-
 from distutils import errors
 from distutils.log import error
 import altair as alt
@@ -26,11 +13,51 @@ from itertools import cycle
 
 #https://github.com/atiqureee51/road_accident_tracker_bd_test1/blob/main/bangladesh_geojson_adm2_64_districts_zillas.json
 
-st.title('Road accident tracker bd')
+#st.title('Road accident tracker bd')
+
+
+import pandas as pd
+import streamlit as st
+import matplotlib.pyplot as plt
+import plotly.express as px
+import plotly.graph_objects as go
+from urllib.request import urlopen
+import json
+from copy import deepcopy
+from plotly.subplots import make_subplots
+
+import os
+
+#print(os.getcwd())
+#https://github.com/ozgunhaznedar/swiss_renewable_energy_app/blob/main/src/main.py
+# checking that the current working directory is correct to ensure that the file paths are working
+#if os.getcwd()[-3:] == "src":
+#    os.chdir('..')
+#print(os.getcwd())
+
+
+#####################################################################################################################
+### LOADING FILES
+
+@st.cache
+
+# LOAD DATAFRAME FUNCTION
+def load_data(path):
+    df = pd.read_csv(path)
+    return df
+
+# LOAD GEIJASON FILE
+with open("data/bangladesh_geojson_adm2_64_districts_zillas.json") as response:
+    bd_districts = json.load(response)
+
+# LOAD csv DATA
+df_raw = load_data(path="data/Districts_of_Bangladesh.csv")
+df = deepcopy(df_raw)
+
 
 
 #df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/tree/main/data/Districts_of_Bangladesh.csv")
-
+"""
 uploaded_file1 = st.file_uploader("Choose a file Districts_of_Bangladesh.csv")
 if uploaded_file1 is not None:
   df = pd.read_csv(uploaded_file1)
@@ -48,8 +75,14 @@ if uploaded_file2 is not None:
 #bd_districts=json.load(open(DATA_URL,"r"))
 # show data on streamlit
 #st.write('64_districts_zillas',bd_districts)
+""""
 
 
+# Add title and header
+st.title("Road accident tracker bd")
+st.header("tracker 1 ")
+
+st.write('Districts_of_Bangladesh',df)
 
 df.District = df.District.apply(lambda x: x.replace(" District",""))
 
@@ -84,7 +117,7 @@ init_notebook_mode(connected=True)
 import plotly.express as px
 import plotly.io as pio
 pio.renderers.default = 'browser'
-
+"""
 fig = px.choropleth(
     df,
     locations='id',
@@ -94,6 +127,37 @@ fig = px.choropleth(
 )
 fig.update_geos(fitbounds="locations", visible=False)
 fig.show()
+"""
+# Geographic Map
+fig = go.Figure(
+    go.Choroplethmapbox(
+        df,
+        locations='id',
+        geojson=bd_districts,
+        color='Population (thousands)',
+        title='Bangladesh Population',
+    )
+)
+fig.update_geos(fitbounds="locations", visible=False)
+fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+"""
+fig.update_layout(
+    mapbox_style="carto-positron",
+    mapbox_zoom=6.6,
+    mapbox_center={"lat": 46.8, "lon": 8.2},
+    width=800,
+    height=600,
+)
+fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+"""
+st.plotly_chart(fig)
+
+
+
+
+
+
+
 
 
 df['Population scale'] = np.log10(df['Population (thousands)'])
