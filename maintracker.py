@@ -95,17 +95,7 @@ df.set_index('District')["Population (thousands)"].plot.bar(
 
 
 #pio.renderers.default = 'browser'
-"""
-fig = px.choropleth(
-    df,
-    locations='id',
-    geojson=bd_districts,
-    color='Population (thousands)',
-    title='Bangladesh Population',
-)
-fig.update_geos(fitbounds="locations", visible=False)
-fig.show()
-"""
+
 # Geographic Map
 fig = go.Figure(
     px.choropleth(
@@ -118,16 +108,6 @@ fig = go.Figure(
 )
 fig.update_geos(fitbounds="locations", visible=False)
 fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-"""
-fig.update_layout(
-    mapbox_style="carto-positron",
-    mapbox_zoom=6.6,
-    mapbox_center={"lat": 46.8, "lon": 8.2},
-    width=800,
-    height=600,
-)
-fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-"""
 st.plotly_chart(fig)
 
 
@@ -140,17 +120,37 @@ st.plotly_chart(fig)
 
 df['Population scale'] = np.log10(df['Population (thousands)'])
 
-fig = px.choropleth(
-    df,
-    locations='id',
-    geojson=bd_districts,
-    color='Population scale',
-    hover_name='Bengali',
-    hover_data=['Area (km2)', 'Population scale'],
-    title='Bangladesh Population'
+
+# Geographic Map 2
+fig2 = go.Figure(
+    px.choropleth(
+        df,
+        locations='id',
+        geojson=bd_districts,
+        color='Population scale',
+        hover_data=['Area (km2)', 'Population scale'],
+        title='Bangladesh Population',
+    )
 )
-fig.update_geos(fitbounds="locations", visible=False)
-fig.show()
+fig2.update_geos(fitbounds="locations", visible=False)
+fig2.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+st.plotly_chart(fig2)
 
-
+# Geographic Map 3
+fig3 = go.Figure(
+    px.choropleth_mapbox(df,
+            locations='id',
+            geojson=bd_districts,
+            color='Population scale',
+            hover_name='Bengali',
+            hover_data=['Population (thousands)','Area (km2)'],
+            title='Bangladesh Population',
+            mapbox_style='carto-positron',
+            center= { 'lat' : 23.6850, 'lon' : 90.3563},
+            zoom=4.8,
+            opacity=0.6)
+)
+fig3.update_geos(fitbounds="locations", visible=False)
+fig3.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+st.plotly_chart(fig3)
 
