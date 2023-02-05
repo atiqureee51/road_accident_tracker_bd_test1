@@ -31,23 +31,25 @@ st.title('Road accident tracker bd')
 
 
 @st.cache()
-df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/tree/main/data/Districts_of_Bangladesh.csv")
-
-st.write('Districts_of_Bangladesh',df)
+#df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/tree/main/data/Districts_of_Bangladesh.csv")
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+  df = pd.read_csv(uploaded_file)
+  st.write('Districts_of_Bangladesh',df)
+#st.write('Districts_of_Bangladesh',df)
 
 
 @st.cache()
-DATA_URL = "data/bangladesh_geojson_adm2_64_districts_zillas.json"
-
-
-
-
+#DATA_URL = "data/bangladesh_geojson_adm2_64_districts_zillas.json"
 import json
 #from json import load
-
-bd_districts=json.load(open(DATA_URL,"r"))
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+  bd_districts=json.load(uploaded_file)
+  st.write(bd_districts)
+#bd_districts=json.load(open(DATA_URL,"r"))
 # show data on streamlit
-st.write('64_districts_zillas',bd_districts)
+#st.write('64_districts_zillas',bd_districts)
 
 
 
