@@ -28,8 +28,18 @@ from itertools import cycle
 
 st.title('Road accident tracker bd')
 
+
+
 @st.cache()
-DATA_URL = 'data/bangladesh_geojson_adm2_64_districts_zillas.json'
+
+import pandas as pd
+df=pd.read_csv("data/Districts_of_Bangladesh.csv")
+
+st.write('Districts_of_Bangladesh',df)
+
+
+@st.cache()
+DATA_URL = "data/bangladesh_geojson_adm2_64_districts_zillas.json"
 
 
 
@@ -37,19 +47,11 @@ DATA_URL = 'data/bangladesh_geojson_adm2_64_districts_zillas.json'
 import json
 #from json import load
 
-bd_districts=json.load(open(DATA_URL,'r'))
+bd_districts=json.load(open(DATA_URL,"r"))
 # show data on streamlit
 st.write('64_districts_zillas',bd_districts)
 
 
-@st.cache()
-DATA_URL_2= 'data/Districts_of_Bangladesh.csv'
-s
-
-import pandas as pd
-df=pd.read_csv(DATA_URL_2)
-
-st.write('Districts_of_Bangladesh',df)
 
 df.District = df.District.apply(lambda x: x.replace(" District",""))
 
