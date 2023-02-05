@@ -79,7 +79,7 @@ df.set_index('District')["Population (thousands)"].plot.bar(
     )
 
 
-from plotly.offline import plot, iplot, init_notebook_mode
+from plotly.offline import plot, init_notebook_mode
 init_notebook_mode(connected=True)
 import plotly.express as px
 import plotly.io as pio
