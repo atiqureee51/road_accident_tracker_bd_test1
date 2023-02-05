@@ -58,11 +58,32 @@ df = deepcopy(df_raw)
 
 #df=pd.read_csv("https://github.com/atiqureee51/road_accident_tracker_bd_test1/tree/main/data/Districts_of_Bangladesh.csv")
 
+# Specify the title and logo for the web page.
+st.set_page_config(page_title='Road accident tracker in Bangladesh', 
 
+# Add social media tags and links to the web page.
+"""
+[![Star](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@dniggl)
+[![Follow](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dennisniggl)
+[![Follow](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/DennisNiggl)
 
-# Add title and header
-st.title("Road accident tracker bd")
-st.header("tracker 1 ")
+# Road accident tracker bd Road Accident MAP Bangladesh
+
+"""
+# Add a sidebar to the web page. 
+st.markdown('---')
+# Sidebar Configuration
+#st.sidebar.image('https://=logo.png', width=200)
+st.sidebar.markdown('# Road accident tracker in Bangladesh')
+st.sidebar.markdown('This database made from daily road accident news from Bangladesh ')
+st.sidebar.markdown('The database updates everyday and maps the places')
+st.sidebar.markdown('You can play with the maps and download the database') 
+
+st.sidebar.markdown('---')
+st.sidebar.write('Developed by Tracker Group')
+st.sidebar.write('Contact at something@gmail.net')                   
+                  
+#st.header("tracker 1 ")
 
 st.write('Districts_of_Bangladesh',df)
 
